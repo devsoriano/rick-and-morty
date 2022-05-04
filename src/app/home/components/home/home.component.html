@@ -1,10 +1,10 @@
 <div class="menu-up" *ngIf="pagePrev > 0 ">
-  <a (click)="getEpisodes(page - 1)">Viaje al pasado</a>
+  <a (click)="chargeEpisodes(page - 1)">Viaje al pasado</a>
 </div>
 <div class="episodes-grid">
   <app-episodes *ngFor="let episode of episodes" [episode]="episode">
   </app-episodes>
 </div>
 <div class="menu-down" *ngIf="pageNext <= info.pages">
-  <a (click)="getEpisodes(page + 1)">Más aventuras</a>
+  <a (click)="chargeEpisodes(page + 1)">Más aventuras</a>
 </div>

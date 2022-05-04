@@ -17,6 +17,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./home/home.module').then((m) => m.HomeModule),
       },
+      {
+        path: 'episode/:id',
+        loadChildren: () =>
+          import('./detail-episode/detail-episode.module').then(
+            (m) => m.DetailEpisodeModule
+          ),
+      },
     ],
   },
 ];
