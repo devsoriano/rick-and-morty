@@ -2,6 +2,7 @@
 export interface IResult {
   air_date?: string;
   characters?: TCharacter[];
+  charactersDetails?: any;
   episode?: string;
   id?: number;
   name?: string;

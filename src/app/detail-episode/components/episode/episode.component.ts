@@ -14,9 +14,12 @@ export class EpisodeComponent implements OnInit {
   detail: IResult = {
     air_date: '',
     characters: [],
+    charactersDetails: [],
     name: '',
     posterMax: '',
   };
+
+  charactersDetails: any = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -34,8 +37,23 @@ export class EpisodeComponent implements OnInit {
     this.rickAndMortyService.getEpisode(id).subscribe((detail: IResult) => {
       let dataEpisode = EPISODES.filter((episode) => episode.id === detail.id);
       const posterMax = `https://art-gallery-latam.api.hbo.com/images/${dataEpisode[0].poster}/tile?v=62e895434757c62a346b60b59dbb0df2&size=1120x630&compression=low&protection=false`;
-      this.detail = { ...detail, posterMax };
-      console.log(this.detail);
+
+      this.charactersDetails = [];
+      detail.characters?.map((characterApi) => {
+        this.rickAndMortyService
+          .getCharacter(characterApi)
+          .subscribe((character) => {
+            this.charactersDetails.push(character);
+          });
+      });
+
+      this.detail = {
+        ...detail,
+        posterMax,
+        charactersDetails: this.charactersDetails,
+      };
     });
   }
+
+  getCharactersDetail() {}
 }
