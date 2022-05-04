@@ -1,0 +1,22 @@
+header {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Resize images */
+header img {
+  width: 35%;
+}
+
+@media (max-width: 600px) {
+  header {
+    margin: 10px 0;
+  }
+
+  header img {
+    width: 70%;
+  }
+ 
+}

@@ -1,0 +1,26 @@
+
+footer {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p.copyright {
+  font-size: 24px;
+  margin-block-start: 42px;
+  margin-block-end: 8px;
+}
+
+footer .social-networks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block-end: 34px;
+  margin-block-start: 0;
+}
+
+footer .social-networks img {
+  margin: 11px;
+}

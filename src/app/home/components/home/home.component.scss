@@ -45,5 +45,20 @@
 }
 
 @media (min-width: 900px) {
-  .cards { grid-template-columns: repeat(3, 1fr); }
+  .cards { grid-template-columns: repeat(4, 1fr); }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  color: #b7e4f9;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: 700;
+
+  :hover {
+    color: #e7e0db;
+  }
 }

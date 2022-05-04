@@ -9,9 +9,12 @@ body {
   background-color: $main-background-color;
   font-family: $theme-font;
   color: $main-color;
+  margin: 0;
 }
 
 main {
   max-inline-size: 1248px;
   margin: auto;
+  padding: 0 20px;
 }
+

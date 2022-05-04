@@ -7,8 +7,8 @@
   </form>
 </div>
 
-<div class="menu-up" *ngIf="pagePrev > 0">
-  <a (click)="chargeEpisodes(page - 1, '')">Viaje al pasado</a>
+<div class="menu" *ngIf="pagePrev > 0">
+  <a class="menu__up" (click)="chargeEpisodes(page - 1, '')">Viaje al pasado</a>
 </div>
 
 <div class="cards">
@@ -16,6 +16,6 @@
   </app-episodes>
 </div>
 
-<div class="menu-down" *ngIf="pageNext <= info.pages">
-  <a (click)="chargeEpisodes(page + 1, '')">Más aventuras</a>
+<div class="menu" *ngIf="pageNext <= info.pages">
+  <a class="menu__down" (click)="chargeEpisodes(page + 1, '')">Más aventuras</a>
 </div>
