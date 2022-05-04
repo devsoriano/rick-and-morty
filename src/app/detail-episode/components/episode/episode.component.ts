@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { RickAndMortyService } from './../../../core/services/rickAndMorty/rick-and-morty.service';
 import { IResult } from '../../../core/models/episode/episode.model';
 import { EPISODES } from '../../../core/services/external/hbo-hack';
+import { ICharacter } from 'src/app/core/models/episode/character.model';
 
 @Component({
   selector: 'app-episode',
@@ -19,7 +20,7 @@ export class EpisodeComponent implements OnInit {
     posterMax: '',
   };
 
-  charactersDetails: any = [];
+  charactersDetails: ICharacter[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +38,7 @@ export class EpisodeComponent implements OnInit {
     this.rickAndMortyService.getEpisode(id).subscribe((detail: IResult) => {
       let dataEpisode = EPISODES.filter((episode) => episode.id === detail.id);
       const posterMax = `https://art-gallery-latam.api.hbo.com/images/${dataEpisode[0].poster}/tile?v=62e895434757c62a346b60b59dbb0df2&size=1120x630&compression=low&protection=false`;
+      this.detail = { ...detail, posterMax };
 
       this.charactersDetails = [];
       detail.characters?.map((characterApi) => {
@@ -47,11 +49,7 @@ export class EpisodeComponent implements OnInit {
           });
       });
 
-      this.detail = {
-        ...detail,
-        posterMax,
-        charactersDetails: this.charactersDetails,
-      };
+      console.log(this.charactersDetails);
     });
   }
 

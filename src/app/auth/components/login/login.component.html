@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="login($event)">
+  <div class="card">
+    <div class="card__header">
+      <h1>Login</h1>
+    </div>
+    <div class="card__content">
+      <div class="row">
+        <div class="col-xs">
+          <input placeholder="email" formControlName="email" matInput type="email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+          <input placeholder="password" formControlName="password" matInput type="password">
+        </div>
+      </div>
+    </div>
+    <div class="card__actions">
+      <button [disabled]="form.invalid" mat-raised-button type="submit">Ingresar</button>
+    </div>
+  </div>
+</form>
