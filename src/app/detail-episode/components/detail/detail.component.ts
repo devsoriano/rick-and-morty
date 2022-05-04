@@ -7,11 +7,9 @@ import { IResult } from '../../../core/models/episode/episode.model';
   styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent implements OnInit {
-  @Input() detail: any;
+  @Input() detail: IResult | undefined;
 
-  constructor() {
-    console.log(this.detail);
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }
