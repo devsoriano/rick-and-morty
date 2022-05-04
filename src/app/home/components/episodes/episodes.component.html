@@ -1,8 +1,8 @@
-<div class="Card" [routerLink]="['./../episode', episode?.id]">
-  <div class="Card__cropImg">
+<div class="card" [routerLink]="['./../episode', episode?.id]">
+  <div class="card__cropImg">
     <img [src]="episode?.posterMin" alt="episode?.name">
   </div>
-  <div class="Card__content">
+  <div class="card__content">
     <h1>{{episode?.name}}</h1>
     <div>{{episode?.air_date}}</div>
   </div>

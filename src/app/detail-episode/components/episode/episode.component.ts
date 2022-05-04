@@ -37,7 +37,7 @@ export class EpisodeComponent implements OnInit {
   chargeEpisode(id: number) {
     this.rickAndMortyService.getEpisode(id).subscribe((detail: IResult) => {
       let dataEpisode = EPISODES.filter((episode) => episode.id === detail.id);
-      const posterMax = `https://art-gallery-latam.api.hbo.com/images/${dataEpisode[0].poster}/tile?v=62e895434757c62a346b60b59dbb0df2&size=1120x630&compression=low&protection=false`;
+      const posterMax = `https://art-gallery-latam.api.hbo.com/images/${dataEpisode[0].poster}/tile?v=66c0d5a9cd3b663e9aee7771f4fa0bcd&size=1520x855&compression=low&protection=false`;
       this.detail = { ...detail, posterMax };
 
       this.charactersDetails = [];
@@ -48,8 +48,6 @@ export class EpisodeComponent implements OnInit {
             this.charactersDetails.push(character);
           });
       });
-
-      console.log(this.charactersDetails);
     });
   }
 

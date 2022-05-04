@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+$theme-font: 'Space Grotesk', sans-serif;
+$main-background-color: #24325F;
+$main-color: #fafd7f;
+
+body {
+  background-color: $main-background-color;
+  font-family: $theme-font;
+  color: $main-color;
+}
+
+main {
+  max-inline-size: 1248px;
+  margin: auto;
+}
