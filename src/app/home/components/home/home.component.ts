@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { RickAndMortyService } from './../../../core/services/rickAndMorty/rick-and-morty.service';
 import {
@@ -14,6 +15,8 @@ import { EPISODES } from './../../../core/services/external/hbo-hack';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  form!: FormGroup;
+
   episodes: IResult[] = [];
 
   info: TInfo = {
@@ -26,15 +29,22 @@ export class HomeComponent implements OnInit {
 
   pageNext: number = 2;
 
-  constructor(private rickAndMortyService: RickAndMortyService) {}
+  name: string = '';
 
-  ngOnInit(): void {
-    this.chargeEpisodes(this.page);
+  constructor(
+    private formBuilder: FormBuilder,
+    private rickAndMortyService: RickAndMortyService
+  ) {
+    this.buildForm();
   }
 
-  chargeEpisodes(page: number) {
+  ngOnInit(): void {
+    this.chargeEpisodes(this.page, '');
+  }
+
+  chargeEpisodes(page: number, name: string) {
     this.page = page;
-    this.rickAndMortyService.getEpisodes(page).subscribe((episodes) => {
+    this.rickAndMortyService.getEpisodes(page, name).subscribe((episodes) => {
       this.info = episodes.info;
       this.pagePrev = this.page - 1;
       this.pageNext = this.page + 1;
@@ -53,5 +63,20 @@ export class HomeComponent implements OnInit {
     });
 
     this.episodes = newListEpisodes;
+  }
+
+  searchEpisodes(event: Event) {
+    event.preventDefault();
+    //console.log(this.form);
+    if (this.form?.valid) {
+      console.log(this.form.value.search);
+      this.chargeEpisodes(1, this.form.value.search);
+    }
+  }
+
+  private buildForm() {
+    this.form = this.formBuilder.group({
+      search: ['', [Validators.required]],
+    });
   }
 }

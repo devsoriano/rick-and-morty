@@ -1,10 +1,16 @@
-<div class="menu-up" *ngIf="pagePrev > 0 ">
-  <a (click)="chargeEpisodes(page - 1)">Viaje al pasado</a>
+<div class="search">
+  <form [formGroup]="form" (ngSubmit)="searchEpisodes($event)">
+    <input placeholder="search" formControlName="search" type="text">
+    <button [disabled]="form.invalid" mat-raised-button type="submit">buscar</button>
+  </form>
+</div>
+<div class="menu-up" *ngIf="pagePrev > 0">
+  <a (click)="chargeEpisodes(page - 1, '')">Viaje al pasado</a>
 </div>
 <div class="episodes-grid">
   <app-episodes *ngFor="let episode of episodes" [episode]="episode">
   </app-episodes>
 </div>
 <div class="menu-down" *ngIf="pageNext <= info.pages">
-  <a (click)="chargeEpisodes(page + 1)">Más aventuras</a>
+  <a (click)="chargeEpisodes(page + 1, '')">Más aventuras</a>
 </div>

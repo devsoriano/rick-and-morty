@@ -10,8 +10,10 @@ import { environment } from './../../../../environments/environment';
 export class RickAndMortyService {
   constructor(private http: HttpClient) {}
 
-  getEpisodes(page: number) {
-    return this.http.get<TEpisode>(`${environment.api}/episode?page=${page}`);
+  getEpisodes(page: number, name: string) {
+    return this.http.get<TEpisode>(
+      `${environment.api}/episode?page=${page}&name=${name}`
+    );
   }
 
   getEpisode(id: number) {
