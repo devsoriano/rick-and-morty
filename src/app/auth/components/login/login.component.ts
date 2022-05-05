@@ -42,4 +42,8 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]],
     });
   }
+
+  goToRegister() {
+    this.router.navigateByUrl('/auth/register');
+  }
 }

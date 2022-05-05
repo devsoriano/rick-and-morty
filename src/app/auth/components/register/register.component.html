@@ -1,22 +1,21 @@
-<form [formGroup]="form" (ngSubmit)="register($event)">
-  <div class="card">
-    <div class="card__header">
-      <h1>Registro</h1>
-    </div>
-    <div class="card__content">
-      <div class="row">
-        <div class="col-xs">
-          <input placeholder="email" formControlName="email" type="email">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs">
-          <input placeholder="password" formControlName="password" type="password">
-        </div>
-      </div>
-    </div>
-    <div class="card__actions">
-      <button [disabled]="form.invalid" type="submit">Registro</button>
-    </div>
-  </div>
-</form>
+<section class="login">
+  <section class="login__logo">
+    <img src="./../../../../assets/fonts/rick-and-morty.png" alt="">
+  </section>
+  <section class="login__container">
+    <h2>Registrate</h2>
+    <form class="login__container--form" [formGroup]="form" (ngSubmit)="register($event)">
+      
+      <input placeholder="Correo" formControlName="email" type="email" class="input">
+      
+      <input placeholder="Contraseña" formControlName="password" type="password" class="input">
+      
+      <button [disabled]="form.invalid" class="button" type="submit">Registrar</button>
+  
+    </form>
+    
+    <p class="login__container--register">
+      Tienes cuenta, <a (click)="goToLogin()">volver al login</a>
+    </p>
+  </section>
+</section>
