@@ -1,1 +1,11 @@
-<p>{{detail?.episode}}</p>
+<div class="detail">
+  <div class="detail__poster">
+    <img [src]="detail?.posterMax" alt="posterMax">
+  </div>
+  <div class="detail__info">
+    <h1>{{detail?.name}}</h1>
+    <h2>{{detail?.episode}}</h2>
+    <h3>{{detail?.air_date}}</h3>
+  </div>
+</div>
+

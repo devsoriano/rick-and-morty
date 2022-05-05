@@ -1,0 +1,15 @@
+.detail {
+  &__poster {
+
+    img {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -12;
+      background: linear-gradient(red, blue);
+      opacity: .2;
+    }
+  }
+  
+}
