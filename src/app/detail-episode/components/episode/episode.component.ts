@@ -48,7 +48,6 @@ export class EpisodeComponent implements OnInit {
             this.charactersDetails.push(character);
           });
       });
-      console.log(this.charactersDetails);
     });
   }
 

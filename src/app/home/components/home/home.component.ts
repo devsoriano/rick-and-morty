@@ -68,7 +68,6 @@ export class HomeComponent implements OnInit {
   searchEpisodes(event: Event) {
     event.preventDefault();
     if (this.form?.valid) {
-      console.log(this.form.value.search);
       this.chargeEpisodes(1, this.form.value.search);
     }
   }
