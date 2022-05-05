@@ -10,6 +10,10 @@ body {
   font-family: $theme-font;
   color: $main-color;
   margin: 0;
+  background-image: linear-gradient(
+    to right bottom, 
+    rgba(#24325F, 0.8), 
+    rgba(#e762d7, 0.8)), 
 }
 
 main {
@@ -17,4 +21,3 @@ main {
   margin: auto;
   padding: 0 20px;
 }
-
