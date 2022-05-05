@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
 
   name: string = '';
 
+  error: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private rickAndMortyService: RickAndMortyService
@@ -44,12 +46,18 @@ export class HomeComponent implements OnInit {
 
   chargeEpisodes(page: number, name: string) {
     this.page = page;
-    this.rickAndMortyService.getEpisodes(page, name).subscribe((episodes) => {
-      this.info = episodes.info;
-      this.pagePrev = this.page - 1;
-      this.pageNext = this.page + 1;
-      this.getEpisodies(episodes);
-    });
+    this.rickAndMortyService.getEpisodes(page, name).subscribe(
+      (episodes) => {
+        this.info = episodes.info;
+        this.pagePrev = this.page - 1;
+        this.pageNext = this.page + 1;
+        this.getEpisodies(episodes);
+      },
+      (error) => {
+        console.log(error);
+        this.error = true;
+      }
+    );
   }
 
   getEpisodies(episodes: TEpisode) {
@@ -68,6 +76,7 @@ export class HomeComponent implements OnInit {
   searchEpisodes(event: Event) {
     event.preventDefault();
     if (this.form?.valid) {
+      console.log(this.form.value.search);
       this.chargeEpisodes(1, this.form.value.search);
     }
   }

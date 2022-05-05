@@ -21,6 +21,7 @@ main {
   max-inline-size: 1248px;
   margin: auto;
   padding: 0 20px;
+  height: 100vh;
 }
 
 
@@ -178,4 +179,25 @@ main {
   color: #8bcf21;
   font-size: 18px;
   font-weight: bold;
+}
+
+.success {
+  color: #FAFD7C;
+  font-size: 18px;
+  font-weight: bold; 
+}
+
+.errorContainer {
+  display: block;
+  text-align: center;
+
+  img {
+    height: 300px;
+  }
+
+  div {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+  }
 }

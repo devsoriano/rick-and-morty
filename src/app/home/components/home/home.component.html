@@ -1,21 +1,32 @@
-<div class="search">  
-  <form [formGroup]="form" (ngSubmit)="searchEpisodes($event)">
-    <input placeholder="Buscar en el multiverso..." formControlName="search" type="text" class="input" >
-    <button [disabled]="form.invalid" type="submit" class="btn">
-      <i class="fas fa-search"></i>
-    </button>
-  </form>
+<div *ngIf="!error">
+  <div class="search">  
+    <form [formGroup]="form" (ngSubmit)="searchEpisodes($event)">
+      <input placeholder="Buscar en el multiverso..." formControlName="search" type="text" class="input" >
+      <button [disabled]="form.invalid" type="submit" class="btn">
+        <i class="fas fa-search"></i>
+      </button>
+    </form>
+  </div>
+
+  <div class="menu" *ngIf="pagePrev > 0">
+    <a class="menu__up" (click)="chargeEpisodes(page - 1, '')">Viaje al pasado</a>
+  </div>
+
+  <div class="cards">
+    <app-episodes *ngFor="let episode of episodes" [episode]="episode">
+    </app-episodes>
+  </div>
+
+  <div class="menu" *ngIf="pageNext <= info.pages">
+    <a class="menu__down" (click)="chargeEpisodes(page + 1, '')">Más aventuras</a>
+  </div>
 </div>
 
-<div class="menu" *ngIf="pagePrev > 0">
-  <a class="menu__up" (click)="chargeEpisodes(page - 1, '')">Viaje al pasado</a>
-</div>
-
-<div class="cards">
-  <app-episodes *ngFor="let episode of episodes" [episode]="episode">
-  </app-episodes>
-</div>
-
-<div class="menu" *ngIf="pageNext <= info.pages">
-  <a class="menu__down" (click)="chargeEpisodes(page + 1, '')">Más aventuras</a>
+<div *ngIf="error">
+  <div class="errorContainer">
+    <img src="./../../../../assets/fonts/rick-and-morty.png"/>
+    <div>
+      Algo ha salido mal en el multiverso, Rick y Morty están trabajando en solucionar el problema, intenta ingresar en unos momentos...
+    </div>
+  </div>
 </div>

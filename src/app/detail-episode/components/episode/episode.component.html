@@ -1,4 +1,16 @@
-<app-detail [detail]="detail"></app-detail>
-<div class="cards">
-  <app-character *ngFor="let character of charactersDetails" [character]="character"></app-character>
-</div> 
+<div *ngIf="!error">
+  <app-detail [detail]="detail"></app-detail>
+
+  <div class="cards">
+    <app-character *ngFor="let character of charactersDetails" [character]="character"></app-character>
+  </div> 
+</div>
+
+<div *ngIf="error">
+  <div class="errorContainer">
+    <img src="./../../../../assets/fonts/rick-and-morty.png"/>
+    <div>
+      Algo ha salido mal en el multiverso, Rick y Morty están trabajando en solucionar el problema, intenta ingresar en unos momentos...
+    </div>
+  </div>
+</div>

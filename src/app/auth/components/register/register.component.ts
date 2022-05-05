@@ -12,6 +12,7 @@ import { AuthService } from './../../../core/services/auth/auth.service';
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
   error: string = '';
+  success: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,7 +31,7 @@ export class RegisterComponent implements OnInit {
       this.authService
         .createUser(value.email, value.password)
         .then(() => {
-          this.router.navigate(['/auth/login']);
+          this.success = `Tu usuario ${value.email} ha sido creado de manera exitosa, ve a login para ingresar al multiverso`;
         })
         .catch((e) => {
           this.error = `Error: ${e.message}`;

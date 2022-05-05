@@ -22,6 +22,8 @@ export class EpisodeComponent implements OnInit {
 
   charactersDetails: ICharacter[] = [];
 
+  error: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private rickAndMortyService: RickAndMortyService
@@ -35,20 +37,32 @@ export class EpisodeComponent implements OnInit {
   }
 
   chargeEpisode(id: number) {
-    this.rickAndMortyService.getEpisode(id).subscribe((detail: IResult) => {
-      let dataEpisode = EPISODES.filter((episode) => episode.id === detail.id);
-      const posterMax = `https://art-gallery-latam.api.hbo.com/images/${dataEpisode[0].poster}/tile?v=66c0d5a9cd3b663e9aee7771f4fa0bcd&size=1520x855&compression=low&protection=false`;
-      this.detail = { ...detail, posterMax };
+    this.rickAndMortyService.getEpisode(id).subscribe(
+      (detail: IResult) => {
+        let dataEpisode = EPISODES.filter(
+          (episode) => episode.id === detail.id
+        );
+        const posterMax = `https://art-gallery-latam.api.hbo.com/images/${dataEpisode[0].poster}/tile?v=66c0d5a9cd3b663e9aee7771f4fa0bcd&size=1520x855&compression=low&protection=false`;
+        this.detail = { ...detail, posterMax };
 
-      this.charactersDetails = [];
-      detail.characters?.map((characterApi) => {
-        this.rickAndMortyService
-          .getCharacter(characterApi)
-          .subscribe((character) => {
-            this.charactersDetails.push(character);
-          });
-      });
-    });
+        this.charactersDetails = [];
+        detail.characters?.map((characterApi) => {
+          this.rickAndMortyService.getCharacter(characterApi).subscribe(
+            (character) => {
+              this.charactersDetails.push(character);
+            },
+            (error) => {
+              console.log(error);
+              this.error = true;
+            }
+          );
+        });
+      },
+      (error) => {
+        console.log(error);
+        this.error = true;
+      }
+    );
   }
 
   getCharactersDetail() {}
