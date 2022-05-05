@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;
+  error: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         })
         .catch(() => {
-          alert('no es válido');
+          this.error = `Error: Usuario o contraseña incorrectos`;
         });
     }
   }

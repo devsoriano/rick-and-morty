@@ -158,7 +158,7 @@ main {
 }
 
 .button {
-  background-color: rgba(255, 255, 255, .3);
+  background-color: rgba(#24345F, .7);
   border: none;
   border-radius: 25px;
   color: #b7e4f9;
@@ -171,6 +171,12 @@ main {
   margin: 10px;
 
   &:disabled {
-    background-color: rgba(#24345F, .7);
+    background-color: rgba(255, 255, 255, .3);
   }
+}
+
+.error {
+  color: #8bcf21;
+  font-size: 18px;
+  font-weight: bold;
 }

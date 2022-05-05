@@ -11,6 +11,7 @@ import { AuthService } from './../../../core/services/auth/auth.service';
 })
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
+  error: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,9 +27,14 @@ export class RegisterComponent implements OnInit {
     event.preventDefault();
     if (this.form?.valid) {
       const value = this.form?.value;
-      this.authService.createUser(value.email, value.password).then(() => {
-        this.router.navigate(['/auth/login']);
-      });
+      this.authService
+        .createUser(value.email, value.password)
+        .then(() => {
+          this.router.navigate(['/auth/login']);
+        })
+        .catch((e) => {
+          this.error = `Error: ${e.message}`;
+        });
     }
   }
 

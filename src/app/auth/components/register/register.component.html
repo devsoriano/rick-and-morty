@@ -10,8 +10,10 @@
       
       <input placeholder="Contraseña" formControlName="password" type="password" class="input">
       
+      <label class="error">{{error}}</label>
+
       <button [disabled]="form.invalid" class="button" type="submit">Registrar</button>
-  
+      
     </form>
     
     <p class="login__container--register">
