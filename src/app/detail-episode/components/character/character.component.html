@@ -1,1 +1,10 @@
-<p>{{character?.name}}</p>
+<div class="card">
+  <div class="card__cropImg">
+    <img [src]="character?.image" alt="character?.name">
+  </div>
+  <div class="card__content">
+    <h1>{{character?.name}}</h1>
+    <div>{{character?.species}}</div>
+    <div>{{character?.status}}</div>
+  </div>
+</div>

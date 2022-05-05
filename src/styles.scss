@@ -22,22 +22,6 @@ main {
   padding: 0 20px;
 }
 
-.card {
-  background-color: #477385;
-  background-image: url('./assets/fonts/background-card.png');
-  background-repeat: no-repeat;
-  background-size: auto;
-  padding: 1rem;  
-  cursor: pointer;
-  border: 2px solid #e762d7ff;
-  border-radius: 6px;
-  height: 90%;
-
-  img {
-    max-width: 100%;   
-    border-radius: 6px;
-  }
-}
 
 .cards {
   max-width: 1248px;
@@ -51,4 +35,20 @@ main {
 
 @media (min-width: 900px) {
   .cards { grid-template-columns: repeat(4, 1fr); }
+}
+
+.card {
+  background-image: url('./assets/fonts/background-card.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  padding: 1rem;  
+  cursor: pointer;
+  border: 2px solid #e762d7ff;
+  border-radius: 6px;
+  height: 90%;
+
+  img {
+    max-width: 100%;   
+    border-radius: 6px;
+  }
 }
