@@ -1,14 +1,19 @@
 header {
   margin: 30px 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-}
 
-/* Resize images */
-header img {
-  width: 25%;
-  &:hover {
+  img {
+    width: 18%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  a {
+    font-size: 22px;
+    font-weight: 700;
     cursor: pointer;
   }
 }
@@ -19,7 +24,7 @@ header img {
   }
 
   header img {
-    width: 50%;
+    width: 35%;
   }
  
 }
