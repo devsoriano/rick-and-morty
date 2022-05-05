@@ -1,27 +1,49 @@
-# RickAndMorty
+# Frontend Rick and Morty
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
+_Proyecto con api Rick and Morty en Angular 12_
 
-## Development server
+## Comenzando 🚀
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+_Se mostrarán 4 pantallas, Logueo, Registro, Listado de capítulos, Listado de personajes_
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Pre-requisitos 📋
 
-## Build
+_Se debe tener instalado node ademas de la última version de CLI Angular, preferiblemente en la última versión, así mismo el CLI de Netlify con sesión abierta por consola_
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+### Instalación 🔧
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+_Ejecutar dentro del proyecto:_
 
-## Running end-to-end tests
+```
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+_una vez instaladas las utilerías de node, ejecutar:_
 
-## Further help
+```
+ng serven -o
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+_hecho esto se abrirá el puerto 4200, en `http://localhost:4200/`_
+
+
+### Instalación en netlify 🔧
+
+_Ejecutar dentro del proyecto:_
+
+```
+ng build --prod
+```
+
+_posteriormente:_
+
+```
+netlify deploy prod
+```
+
+_hecho esto se genera un link con el proyecto en un servidor de netlify`_
+
+
+⌨️ con ❤️ por [Rafael Soriano Ramírez](https://github.com/sorianos) 😊
